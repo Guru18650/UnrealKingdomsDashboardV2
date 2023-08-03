@@ -14,7 +14,7 @@ export const actions = {
 			const payload = { email: email, password: pass1, username: uname};
 			var resp = await apiFetch('/auth/register', payload);
 			cookies.set('newAcc', 'Account created, log in');
-			throw redirect(307, '/login');
+			throw redirect(301, '/login');
 		}
 	}
 };
