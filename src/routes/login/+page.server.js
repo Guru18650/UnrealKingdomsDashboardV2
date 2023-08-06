@@ -22,7 +22,7 @@ export const actions = {
             else
                 payload = {email:email, password:password, expires: "7 d"};
             var resp = await apiFetch('/auth/login',payload);
-            if(resp.data.jwt.length>100){
+            if(resp.data.hasOwnProperty('jwt')){
             cookies.set('jwt',resp.data.jwt,{maxAge: 60 * 60 * 24 * 30});
             cookies.set('email',email);
             return "success";
