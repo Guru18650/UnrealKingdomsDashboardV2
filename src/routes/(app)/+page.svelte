@@ -2,7 +2,6 @@
 import { invalidateAll } from '$app/navigation';
 if (typeof window !== 'undefined') {
 invalidateAll();
-document.cookie
 }
 export let data;
 

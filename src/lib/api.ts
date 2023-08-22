@@ -7,14 +7,18 @@ export async function apiFetch(endpoint, payload) {
         }
     
 
-export async function verify(cookies) {
+export async function verify(cookies, admin) {
+    var payload;
 	const jwt = cookies.get('jwt');
     if(jwt === undefined){
         return false;
     } else {
-        const payload = {token:jwt}
+        if(admin)
+            payload = {token:jwt, admin:admin}
+        else
+            payload = {token:jwt}
         var resp = await apiFetch('/auth/verify',payload);
-        if(resp.data.authenticated == 'false'){
+        if(!resp.data.authenticated){
             return false;
         } else {
             return true;
@@ -23,7 +27,14 @@ export async function verify(cookies) {
 }
 
 export async function protectedPage(cookies){
-    if(!await verify(cookies)){
+    if(!await verify(cookies, false)){
         throw redirect(307, '/login');
+    }
+}
+
+export async function adminProtected(cookies){
+    const x = await verify(cookies, true);
+    if(!x){
+        throw redirect(307, '/admin/login');
     }
 }

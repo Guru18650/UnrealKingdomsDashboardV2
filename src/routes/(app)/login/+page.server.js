@@ -6,7 +6,7 @@ export function load({cookies}){
     if(newAcc == "" || cookies.get("newAcc") == null){
         newAcc = "Log in to your account";
     }
-    cookies.set("newAcc","");
+    cookies.set("newAcc","",{maxAge:-1});
     return {newAcc}
 }
 

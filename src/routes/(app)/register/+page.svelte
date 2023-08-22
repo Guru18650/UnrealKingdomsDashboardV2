@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { Toast, toastStore } from '@skeletonlabs/skeleton';
-  import type { ToastSettings } from '@skeletonlabs/skeleton';
+  import { getToastStore } from '@skeletonlabs/skeleton';
+  const toastStore = getToastStore();
+  
   import FormInput from "$lib/components/formInput.svelte";
   import * as EmailValidator from 'email-validator';
 	import { apiFetch } from '$lib/api';
@@ -76,5 +77,3 @@
       Already have an account? <a href="login" class="font-medium text-primary-500 hover:underline">Sign in</a>
     </p>
   </div>
-
-<Toast background="variant-filled-error"/>

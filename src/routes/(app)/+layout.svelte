@@ -3,13 +3,13 @@
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
   import { storePopup } from '@skeletonlabs/skeleton';
 storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
-	// The ordering of these imports is critical to your app working properly
-	import '@skeletonlabs/skeleton/themes/theme-modern.css';
-	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-	// Most of your app wide CSS should be put in this file
-	import '../app.postcss';
-	import { AppShell, AppBar, Avatar, AppRail, AppRailTile, AppRailAnchor } from "@skeletonlabs/skeleton";
+	import './app.postcss';
+	import { AppShell, AppBar} from "@skeletonlabs/skeleton";
+  
+  import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+  import { initializeStores } from '@skeletonlabs/skeleton';
+  initializeStores();
+
 </script>
 
 <AppShell>
@@ -33,3 +33,4 @@ storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
   </svelte:fragment>
   <slot />
 </AppShell>
+<Toast background="variant-filled-error"/>

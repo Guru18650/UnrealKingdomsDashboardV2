@@ -1,6 +1,9 @@
 <script>
 	import { enhance } from '$app/forms';
-    import { Toast, toastStore } from '@skeletonlabs/skeleton';
+
+    import { getToastStore } from '@skeletonlabs/skeleton';
+    const toastStore = getToastStore();
+  
 
     export let data;
     let form,from,to,ammount = 0,d = false,ammountout,i,j,rate = 1,toastBG = "variant-filled-error";
@@ -145,5 +148,3 @@
         </div>
     </div>
 </div>
-
-<Toast background={toastBG} max=2/>
