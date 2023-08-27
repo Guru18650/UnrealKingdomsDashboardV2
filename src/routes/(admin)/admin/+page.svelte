@@ -134,12 +134,69 @@
         </form>
     </div>
     
-    <!--
     <div class="p-4 md:p-6 w-full md:w-3/4 !bg-transparent rounded-2xl shadow-4xl m-auto md:mt-10 mt-5 text-center">
         <h1 class="text-lg leading-tight text-center tracking-tight md:text-3xl">
-            Your wallet
+            Bans Manager
         </h1>
+        <form method="POST" action="?/ban" 
+        use:enhance={({form}) => {return ({result, update }) => {
+            if(result.data != true){
+                toastStore.trigger({message:'Failed'});
+            } else {
+                toastStore.trigger({message:'Success'});
+            }
+        }}}>
+            <div class="pt-3 font-medium text-small">
+                <label class="label mt-3">
+                <span>Email</span>
+                <input class="input rounded-lg !mt-3" type="email" name="banEmail"/>
+                  </label>
+            </div>
+            <div class="grid grid-rows-1 xl:grid-cols-2 grid-cols-2">
+                <div class="pt-3 font-medium text-small mr-3">
+                    <a href="/admin/bans"><button type="button" class="btn variant-filled-tertiary w-full rounded-lg mt-5">Browse</button></a>
+
+            </div>
+        <div class="pt-3 font-medium text-small ml-3">
+        <button type="submit" class="btn variant-filled-primary w-full rounded-lg mt-5">Ban</button>
+</div>
+        </div>
+    </form>
+
     </div>
+
+    <div class="p-4 md:p-6 w-full md:w-3/4 !bg-transparent rounded-2xl shadow-4xl m-auto md:mt-10 mt-5 text-center">
+        <h1 class="text-lg leading-tight text-center tracking-tight md:text-3xl">
+            Admins Manager
+        </h1>
+        <form method="POST" action="?/promote" 
+        use:enhance={({form}) => {return ({result, update }) => {
+            if(result.data != true){
+                toastStore.trigger({message:'Failed'});
+            } else {
+                toastStore.trigger({message:'Success'});
+            }
+        }}}>
+            <div class="pt-3 font-medium text-small">
+                <label class="label mt-3">
+                <span>Email</span>
+                <input class="input rounded-lg !mt-3" type="email" name="adminEmail"/>
+                  </label>
+            </div>
+            <div class="grid grid-rows-1 xl:grid-cols-2 grid-cols-2">
+                <div class="pt-3 font-medium text-small mr-3">
+                    <a href="/admin/admins"><button type="button" class="btn variant-filled-tertiary w-full rounded-lg mt-5">Browse</button></a>
+
+            </div>
+        <div class="pt-3 font-medium text-small ml-3">
+        <button type="submit" class="btn variant-filled-primary w-full rounded-lg mt-5">Promote</button>
+</div>
+        </div>
+    </form>
+
+    </div>
+
+    <!--
     <div class="p-4 md:p-6 w-full md:w-3/4 !bg-transparent rounded-2xl shadow-4xl m-auto md:mt-10 mt-5 text-center">
         <h1 class="text-lg leading-tight text-center tracking-tight md:text-3xl">
             Your wallet

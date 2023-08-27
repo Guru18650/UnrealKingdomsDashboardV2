@@ -46,6 +46,28 @@ export const actions = {
         }
         return false;
     },
+    ban: async ({ request, cookies }) => {
+		const data = await request.formData();
+        const banEmail = data.get('banEmail');
+        if(banEmail!=""){
+            let payload;
+            payload = {token:cookies.get('jwt'),email:banEmail};
+            var resp = await apiFetch('/users/ban',payload);
+            return (resp.status == 200);
+        }
+        return false;
+    },
+    promote: async ({ request, cookies }) => {
+		const data = await request.formData();
+        const banEmail = data.get('adminEmail');
+        if(banEmail!=""){
+            let payload;
+            payload = {token:cookies.get('jwt'),email:banEmail};
+            var resp = await apiFetch('/users/promote',payload);
+            return (resp.status == 200);
+        }
+        return false;
+    },
     eRates: async ({ request, cookies }) => {
         const data = await request.formData();
         const uk = data.get('uk');
