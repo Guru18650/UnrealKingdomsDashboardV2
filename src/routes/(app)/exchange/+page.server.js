@@ -6,9 +6,9 @@ export async function load({cookies}){
     let exchange = await apiFetch("/coins/exchangeRate", {});
     let k = await apiFetch("/coins/get", {email: cookies.get('email')});
     const wallet = JSON.parse(JSON.stringify(exchange.data));
-    wallet[0].value = k.data.dg_coin;
-    wallet[1].value = k.data.cc_coin;
-    wallet[2].value = k.data.uk_coin;
+    wallet[0].value = k.data.data.dg_coin;
+    wallet[1].value = k.data.data.cc_coin;
+    wallet[2].value = k.data.data.uk_coin;
     return {exchange, wallet}
 }
 
