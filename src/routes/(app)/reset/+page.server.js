@@ -23,7 +23,6 @@ export const actions = {
 		if(pass != ""){
             let payload = {token:y,password:pass};
             await apiFetch('/auth/changepass',payload);
-            throw redirect(307, '/login');
             return "success";
         } 
     }

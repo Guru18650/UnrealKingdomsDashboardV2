@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getToastStore } from '@skeletonlabs/skeleton';
   const toastStore = getToastStore();
+	import { enhance } from '$app/forms';
   
   import FormInput from "$lib/components/formInput.svelte";
   import * as EmailValidator from 'email-validator';
@@ -31,7 +32,12 @@
     <h1 class="text-xl leading-tight tracking-tight md:text-2xl">
         Reset password
     </h1>
-    <form method="post" bind:this={form}>
+    <form method="POST" bind:this={form}
+    use:enhance={() => {
+      return ({result, update }) => {
+            window.location.href = "/login";
+      };
+    }}>
     <div class="pt-3 font-medium text-small">
         <label class="label mt-3">
           <span>New password</span>
