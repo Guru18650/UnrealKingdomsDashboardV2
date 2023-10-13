@@ -44,6 +44,9 @@
       <span>Password</span>
       <input class="input rounded-lg" type="password" name="pass" bind:value={pass}/>
     </label>
+    <p class="text-sm font-light mt-2">
+      Forgot password? <a href="forgot" class="font-medium text-primary-500 hover:underline">Reset</a>
+    </p>
     <label class="flex items-center space-x-2 mt-3 font-normal">
       <input class="checkbox" type="checkbox" name="remember"/>
       <p>Remember me</p>
@@ -54,4 +57,5 @@
   <p class="text-sm font-light mt-2">
     Don’t have an account yet? <a href="register" class="font-medium text-primary-500 hover:underline">Sign up</a>
   </p>
+  
 </div>

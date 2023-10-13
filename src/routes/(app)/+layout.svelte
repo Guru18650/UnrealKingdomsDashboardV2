@@ -26,7 +26,7 @@ storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
         <a class="btn variant-filled-secondary" href="dashboard">Dashboard</a>
         <a class="btn variant-filled-error md:w-auto w-20" href="logout">Log out</a>
         {:else}
-        <a class="btn variant-filled-secondary" href="login">Log in</a>
+        <a class="btn variant-filled-secondary rounded-lg" href="login">Log in</a>
         {/if}
       </svelte:fragment>
     </AppBar>  
