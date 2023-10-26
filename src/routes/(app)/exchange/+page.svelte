@@ -70,7 +70,7 @@
                     <tr class="!text-center">
                         <th>Code</th>
                         <th>Name</th>
-                        <th>Ammount</th>
+                        <th>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
